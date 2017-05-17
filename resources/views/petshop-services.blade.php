@@ -11,6 +11,25 @@
                     <!-- You are logged in as <strong>Petshop</strong>! -->
                     <!-- <button type="button" class="btn btn-success">Novo</span></button> -->
                     <a class="btn btn-large btn-success" href="{{ route('petshop.services.add') }}">Novo</a>
+
+                    <div class="row">
+                        <table class="table table-striped">
+                            <tr>
+                                <th>Nome</th>
+                                <th>Descrição</th>
+                                <th>Valor</th>
+                            </tr>
+
+                            @foreach($services as $s)
+                                <tr>
+                                    <td>{{$s->name}}</td>
+                                    <td>{{$s->description}}</td>
+                                    <td>{{$s->value}}</td>
+                                </tr>
+                            @endforeach
+
+                        </table>
+                    </div>
                 </div>
             </div>
         </div>

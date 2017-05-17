@@ -19,9 +19,6 @@ class CreateServicesTable extends Migration
             $table->longText('description');
             $table->double('value');
             $table->integer('petshop_id')->unsigned();
-            $table->integer('typepet_id')->unsigned();
-            $table->integer('breed_id')->unsigned();
-            $table->integer('stature_id')->unsigned();
             $table->foreign('petshop_id')
                 ->references('id')
                 ->on('petshops')

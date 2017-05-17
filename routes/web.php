@@ -29,6 +29,7 @@ Route::get('/home', 'HomeController@index')->name('home');
     Route::post('/login', 'Auth\PetshopLoginController@login')->name('petshop.login.submit');
     Route::get('/', 'PetshopController@index')->name('petshop.dashboard');
     Route::get('/services', 'ServiceController@index')->name('petshop.services');
-    Route::get('/services/add', 'ServiceController@new')->name('petshop.services.add');
+    Route::get('/services/add', 'ServiceController@create')->name('petshop.services.add');
+    Route::post('/services/add', 'ServiceController@store')->name('petshop.services.submit');
     Route::get('/calendar', 'PetshopController@calendar')->name('petshop.calendar');
   });
