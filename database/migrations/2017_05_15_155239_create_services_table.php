@@ -19,9 +19,14 @@ class CreateServicesTable extends Migration
             $table->longText('description');
             $table->double('value');
             $table->integer('petshop_id')->unsigned();
+            $table->integer('typepet_id')->unsigned();
             $table->foreign('petshop_id')
                 ->references('id')
                 ->on('petshops')
+                ->onDelete('cascade');
+            $table->foreign('typepet_id')
+                ->references('id')
+                ->on('typepets')
                 ->onDelete('cascade');
             $table->timestamps();
             $table->softDeletes();

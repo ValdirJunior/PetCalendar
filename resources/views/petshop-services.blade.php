@@ -13,22 +13,27 @@
                     <a class="btn btn-large btn-success" href="{{ route('petshop.services.add') }}">Novo</a>
 
                     <div class="row">
-                        <table class="table table-striped">
-                            <tr>
-                                <th>Nome</th>
-                                <th>Descrição</th>
-                                <th>Valor</th>
-                            </tr>
-
-                            @foreach($services as $s)
+                        <div class="col-md-12">
+                            <table class="table table-striped">
                                 <tr>
-                                    <td>{{$s->name}}</td>
-                                    <td>{{$s->description}}</td>
-                                    <td>{{$s->value}}</td>
+                                    <th>Nome</th>
+                                    <th>Descrição</th>
+                                    <th>Animal</th>
+                                    <th>Valor</th>
                                 </tr>
-                            @endforeach
 
-                        </table>
+                                @foreach($services as $s)
+                                    <tr>
+                                        <td>{{$s->name}}</td>
+                                        <td>{{$s->description}}</td>
+                                        <td>{{ucfirst($s->typepet)}}</td>
+                                        <td>{{$s->value}}</td>
+                                    </tr>
+                                @endforeach
+
+                            </table>
+                        </div>
+
                     </div>
                 </div>
             </div>

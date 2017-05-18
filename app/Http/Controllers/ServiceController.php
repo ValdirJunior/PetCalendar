@@ -9,6 +9,9 @@ use App\Http\Requests;
 use App\Service;
 
 use App\Petshop;
+use App\TypePet;
+
+use Auth;
 
 class ServiceController extends Controller
 {
@@ -29,26 +32,22 @@ class ServiceController extends Controller
      */
     public function index()
     {
-        $services = Service::all();
+        $services = Service::where('petshop_id',Auth::user()->id)
+                            ->select('services.name','services.description','typepets.description as typepet','services.value')
+                            ->join('typepets', 'services.typepet_id', '=', 'typepets.id')
+                            ->get();
         return view('petshop-services',['services' => $services]);
     }
 
     public function create()
     {
-        return view('petshop-services-add');
+        $typepets = TypePet::all();
+        return view('petshop-services-add', ['typepets' => $typepets]);
     }
 
     public function store(Request $request)
     {
-
-        // $this->validate($request, [
-        //     'name' => 'request',
-        //     'description' => 'request',
-        //     'value' => 'request',
-        // ]);
-
         $petshop = Petshop::find($request->petshop_id);
-        //$request->all()['petshop_id'] = $petshop->id;
         Service::create($request->all());
 
         return redirect()->route('petshop.services');

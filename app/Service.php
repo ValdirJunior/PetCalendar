@@ -10,11 +10,12 @@ class Service extends Model
     protected $table = 'services';
 
     protected $fillable = [
-        'name', 'description', 'value', 'petshop_id',
+        'name', 'description', 'value', 'petshop_id', 'typepet_id',
     ];
 
     protected $casts = [
         'value' => 'float',
         'petshop_id' => 'int',
+        'typepet_id' => 'int',
     ];
 }

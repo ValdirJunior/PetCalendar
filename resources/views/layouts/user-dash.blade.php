@@ -44,7 +44,7 @@
                     <!-- Left Side Of Navbar -->
                     <ul class="nav navbar-nav">
                         <li><a href="{{ route('user.calendar')}}">Agenda</a></li>
-                        <li><a href="{{ route('user.pets')}}">Pets</a></li>
+                        <li><a href="{{ route('user.pets')}}">Cãodastro</a></li>
                     </ul>
 
                     <!-- Right Side Of Navbar -->

@@ -21,7 +21,9 @@ Route::get('/home', 'HomeController@index')->name('home');
 
   Route::prefix('user')->group(function() {
      Route::get('/calendar', 'HomeController@calendar')->name('user.calendar');
-     Route::get('/pets', 'HomeController@pets')->name('user.calendar');
+     Route::get('/pets', 'PetController@index')->name('user.pets');
+     Route::get('/pets/add', 'PetController@create')->name('user.pets.add');
+     Route::post('/pets/add', 'PetController@store')->name('user.pets.submit');
   });
 
   Route::prefix('petshop')->group(function() {
