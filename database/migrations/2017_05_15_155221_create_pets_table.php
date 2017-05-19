@@ -19,9 +19,14 @@ class CreatePetsTable extends Migration
             $table->date('birthDate');
             $table->char('sex');
             $table->integer('client_id')->unsigned();
+            $table->integer('typepet_id')->unsigned();
             $table->foreign('client_id')
                 ->references('id')
                 ->on('users')
+                ->onDelete('cascade');
+            $table->foreign('typepet_id')
+                ->references('id')
+                ->on('typepets')
                 ->onDelete('cascade');
             $table->timestamps();
             $table->softDeletes();

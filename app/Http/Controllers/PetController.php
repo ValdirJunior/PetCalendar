@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Pet;
+use App\TypePet;
 
 use App\User;
 
@@ -25,12 +26,13 @@ class PetController extends Controller
 
     public function create()
     {
-        return view('user-pets-add');
+        $typepets = TypePet::all();
+        return view('user-pets-add', ['typepets' => $typepets]);
     }
 
     public function store(Request $request)
     {
-        $client = User::find($request->client_id);
+        //dd($request->all());
         Pet::create($request->all());
 
         return redirect()->route('user.pets');

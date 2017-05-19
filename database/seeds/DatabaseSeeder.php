@@ -37,11 +37,21 @@ class DatabaseSeeder extends Seeder
 
         DB::table('petshops')->insert([
             'cnpj' => '1',
-            'email' => 'teste@email.com',
+            'email' => 'petshop@email.com',
             'password' => bcrypt('123456'),
             'socialName' => 'PetShop 1',
             'realName' => 'PetShop Teste',
             'telNumber' => '9',
+        ]);
+
+        DB::table('users')->insert([
+            'name' => 'Usuário Teste',
+            'email' => 'user@email.com',
+            'password' => bcrypt('123456'),
+            'cpf' => '1',
+            'sex' => 'M',
+            'telNumber' => '9',
+            'birthDate' => '1990-01-01',
         ]);
     }
 }

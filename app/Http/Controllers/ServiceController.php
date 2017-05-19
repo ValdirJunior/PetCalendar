@@ -47,7 +47,6 @@ class ServiceController extends Controller
 
     public function store(Request $request)
     {
-        $petshop = Petshop::find($request->petshop_id);
         Service::create($request->all());
 
         return redirect()->route('petshop.services');

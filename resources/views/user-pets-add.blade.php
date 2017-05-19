@@ -12,6 +12,17 @@
                         {{ csrf_field() }}
 
                         <div class="form-group">
+                            <label for="typepet_id" class="col-sm-3 control-label">Animal:</label>
+                            <div class="col-sm-9">
+                                <select class="form-control" name="typepet_id">
+                                    @foreach($typepets as $typepet)
+                                        <option value="{{ $typepet->id }}">{{ucfirst($typepet->description)}}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
                             <label for="name" class="col-sm-3 control-label">Nome:</label>
                             <div class="col-sm-9">
                                 <input type="text" id="name " name="name" placeholder="Nome" value="{{ old('name') }}" required autofocus>
