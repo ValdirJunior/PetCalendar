@@ -34,4 +34,7 @@ Route::get('/home', 'HomeController@index')->name('home');
     Route::get('/services/add', 'ServiceController@create')->name('petshop.services.add');
     Route::post('/services/add', 'ServiceController@store')->name('petshop.services.submit');
     Route::get('/calendar', 'PetshopController@calendar')->name('petshop.calendar');
+
+    Route::get('/register', 'Auth\PetshopRegisterController@showRegistrationForm')->name('petshop.register.form');
+    Route::post('/register', 'Auth\PetshopRegisterController@create')->name('petshop.register');
   });
